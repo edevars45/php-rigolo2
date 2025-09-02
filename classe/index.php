@@ -15,7 +15,7 @@
                 <th>Prénom</th>
                 <th>Age</th>
                 <th>Date de naissance</th>
- 
+
             </tr>
         </thead>
         <tfoot>
@@ -24,13 +24,13 @@
                 <th>Prénom</th>
                 <th>Age</th>
                 <th>Date de naissance</th>
- 
+
             </tr>
         </tfoot>
         <tbody>
- 
+
             <?php
- 
+
             $stmt = $dbconnexion->query("SELECT nom,prenom,date_naissance FROM users");
             $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             function calculerAge($dateNaissance)
@@ -40,7 +40,7 @@
                 $difference = $aujourdhui->diff($dateNaissanceObj);
                 return $difference->y;
             }
- 
+
             foreach ($utilisateurs as $user) {
                 $age = calculerAge($user['date_naissance']);
                 echo '<tr>
@@ -52,13 +52,8 @@
           </tr>';
             }
             ?>
- 
- 
-            }
- 
- 
-            ?>
- 
+
+
         </tbody>
     </table>
 </div>
@@ -73,4 +68,3 @@
     });
 </script>
 <?php include '../footer.php'; ?>
- 

@@ -31,25 +31,48 @@ $KeywordsPage = 'ce,que,tu,veux';
     <a href="#menu" class="menu-link">
         <span>toggle menu</span>
     </a>
-    <!-- Début menu à remplacer avec les tableaux de config.php -->
-    <nav id="menu" class="panel" role="navigation">
-        <ul>
-            <li>
-                <div><a href="<?= URL_ROOT ?>/helpers/">Les helpers</a></div>
-                <div><a href="<?= URL_ROOT ?>/classe/">La classe</a></div>
-                <div><a href="<?= URL_ROOT ?>/note/">La note</a></div>
-            </li>
-            <li>
-                <div><a href="<?= URL_ROOT ?>/menu/">Le menu</a></div>
-                <div><a href="<?= URL_ROOT ?>/referencement/">Référencement</a></div>
-                <div><a href="<?= URL_ROOT ?>/vignettes/">Les vignettes</a></div>
-            </li>
-            <li>
-                <div><a href="<?= URL_ROOT ?>/morpion/">Le morpion</a></div>
-                <div><a href="<?= URL_ROOT ?>/news/">Les news</a></div>
-                <div><a href="<?= URL_ROOT ?>/fichier-csv/">Fichier CSV</a></div>
-            </li>
+    
+   <!-- Début menu à remplacer avec les tableaux de config.php -->
+<nav id="menu" class="panel" role="navigation">
+  <ul>
+    <?php
+    // 1) Sécurité / valeurs par défaut
+    $items  = isset($menu) && is_array($menu) ? $menu : [];
+    $perRow = max(1, (int)($NbreElementLigne ?? 3)); // nb de colonnes par ligne
 
-        </ul>
-    </nav>
-    <!-- Fin menu à remplacer avec les tableaux de config.php -->
+    // 2) Parcours des items et découpe en lignes
+    $i = 0;
+    foreach ($items as $label => $data) {
+        // Ouvre une ligne <li> toutes les $perRow entrées
+        if ($i % $perRow === 0) {
+            echo "<li>\n";
+        }
+
+        // Construit l'URL propre (URL_ROOT + lien du config)
+        $path = isset($data['link']) ? (string)$data['link'] : '';
+        $path = ltrim($path, '/');                         // enlève éventuel "/" au début
+        if ($path !== '' && substr($path, -1) !== '/') {   // force "/" de fin
+            $path .= '/';
+        }
+        $url  = rtrim(URL_ROOT, '/') . '/' . $path;
+
+        // Affiche un bloc
+        echo '  <div><a href="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '">'
+           . htmlspecialchars($label, ENT_QUOTES, 'UTF-8') . "</a></div>\n";
+
+        $i++;
+
+        // Ferme la ligne <li> quand on a mis $perRow éléments
+        if ($i % $perRow === 0) {
+            echo "</li>\n";
+        }
+    }
+
+    // 3) Si la dernière ligne n'était pas complète, on ferme le <li>
+    if ($i > 0 && $i % $perRow !== 0) {
+        echo "</li>\n";
+    }
+    ?>
+  </ul>
+</nav>
+<!-- Fin menu à remplacer avec les tableaux de config.php -->

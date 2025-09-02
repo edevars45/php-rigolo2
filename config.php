@@ -11,23 +11,23 @@ define('NOM_DB', 'php-rigolo2');
 define('UTILISATEUR_DB', 'root');
 define('MDP_DB', '');
 
-$dbconnexion = new PDO('mysql:host=localhost;dbname=' . NOM_DB, UTILISATEUR_DB, MDP_DB, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+// Connexion PDO moderne (utf8mb4, erreurs en exceptions, fetch assoc)
+$dsn = 'mysql:host=127.0.0.1;port=3306;dbname=' . NOM_DB . ';charset=utf8mb4';
 
-function get_pdo(): PDO {
-    static $pdo = null;
-    if ($pdo instanceof PDO) return $pdo;
-$dsn = 'mysql:host=localhost;dbname=php-rigolo2;charset=utf8mb4';    
-$pdo = new PDO($dsn, 'root', '', [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ]);
-    return $pdo;
-}
+$pdo = new PDO($dsn, UTILISATEUR_DB, MDP_DB, [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+]);
+
+// Compatibilité si du code ancien utilise encore $dbconnexion
+$dbconnexion = $pdo;
 
 
 
-$NbreElementLigne = 3;
+$NbreElementLigne = 1;
+
+
 
 $menu['Les helpers'] = array();
 $menu['Les helpers']['link'] = 'helpers/';
