@@ -1,0 +1,23 @@
+{"qsdfV45":0,"lhGtF62":1,"GFoP5s":2,"YvKJhc23":3,"MvDF34":4}
+{
+  "scale": 20,
+  "codes": {
+    "qsdfV45": 0,
+    "lhGtF62": 1,
+    "GFoP5s": 2,
+    "YvKJhc23": 3,
+    "MvDF34": 4
+  },
+  "answers": {
+    "helpers": "lhGtF62",
+    "classe": "lhGtF62",
+    "note": "lhGtF62",
+    "menu": "GFoP5s",
+    "referencement": "GFoP5s",
+    "vignettes": "GFoP5s",
+    "morpion": "MvDF34",
+    "news": "MvDF34",
+    "csv": "YvKJhc23"
+  }
+}
+

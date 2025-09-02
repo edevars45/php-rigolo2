@@ -1,0 +1,361 @@
+/* ==========================
+   MENU FULLPAGE CSS
+========================== */
+
+html {
+  height:100%;  
+}
+
+body {
+  background-color:#99cc00;
+  margin: 0 auto;
+  font-family: 'Montserrat Alternates', sans-serif;
+    margin:0;
+  padding:0;
+  background: url(../img/background.svg) no-repeat center fixed; 
+  -webkit-background-size: cover;
+  background-size: cover;
+  height:100%; 
+}
+
+ul,li {
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+
+.panel {
+    position: fixed;
+    left: -100%; /*left or right and the width of your navigation panel*/
+    width: 100%; /*should match the above value*/
+}
+
+.menu-link i {
+    text-decoration: none;
+    font-size: 40px;
+    color: #fff;
+}
+
+#menu{
+    background: rgba(33, 33, 33, 0.6);
+    z-index: 998;
+}
+
+#menu ul{
+    margin-top: 150px;
+}
+
+#menu li{
+    text-align: center;
+    transition: all 0.4s ease;
+    padding: 20px 0;
+    font-size:40px;
+    color:white;
+}
+
+#menu li div {
+  display:inline-block;
+  width:300px;
+}
+
+#menu li a{
+    color: #fff;
+    font-size: 35px;
+    text-decoration: none;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 600;
+    padding: 20px 0;
+	  width:300px;
+}
+
+#menu li a:hover{
+    color: #99cc00;
+}
+
+#menu li:hover{
+    background: rgba(33, 33, 33, 0.8);
+}
+
+.menu-link {
+  z-index: 999;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  height: 80px;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background 0.3s;
+          transition: background 0.3s;
+  background-color: transparent;
+}
+
+.menu-link:focus {
+  outline: none;
+}
+
+.menu-link span {
+  display: block;
+  position: absolute;
+  top: 45px;
+  left: 18px;
+  right: 18px;
+  height: 6px;
+  border-radius: 2px;
+  background: white;
+  -webkit-transition: background 0 0.3s;
+          transition: background 0 0.3s;
+}
+
+.menu-link span::before,
+.menu-link span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  border-radius: 2px;
+  background-color: #fff;
+  content: "";
+  -webkit-transition-duration: 0.3s, 0.3s;
+          transition-duration: 0.3s, 0.3s;
+  -webkit-transition-delay: 0.3s, 0;
+          transition-delay: 0.3s, 0;
+}
+
+.menu-link span::before {
+  top: -15px;
+  -webkit-transition-property: top, -webkit-transform;
+          transition-property: top, transform;
+}
+
+.menu-link span::after {
+  bottom: -15px;
+  -webkit-transition-property: bottom, -webkit-transform;
+          transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+.menu-open {
+  background-color: transparent;
+}
+
+.menu-open span {
+  background: none;
+}
+
+.menu-open span::before {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.menu-open span::after {
+  bottom: 0;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.menu-open span::before,
+.menu-open span::after {
+  -webkit-transition-delay: 0, 0.3s;
+          transition-delay: 0, 0.3s;
+}
+
+.general-content {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  padding:30px;
+}
+
+h1 {
+margin-bottom:30px;
+
+}
+
+h2 {
+margin-top:30px;
+margin-bottom:20px;
+
+}
+
+p {
+font-size:18px;
+}
+
+.choix-aleatoire {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #99cc00;
+  padding:10px;
+  margin-bottom:40px;
+  border-radius: 5px;
+  text-align:center;
+  font-size:40px;
+  color:white;
+}
+
+.MegaNote {
+	  width: 100%;
+	  text-align:center;
+	  font-size:150px;
+	  color:#99cc00;
+	}
+	
+      .cropit-preview {
+        background-color: #f8f8f8;
+        background-size: cover;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-top: 7px;
+        width: 250px;
+        height: 250px;
+      }
+
+      .cropit-preview-image-container {
+        cursor: move;
+      }
+
+      .image-size-label {
+        margin-top: 10px;
+      }
+
+      input {
+        display: block;
+      }
+
+      button[type="submit"] {
+        margin-top: 10px;
+      }
+
+      #result {
+        margin-top: 10px;
+        width: 900px;
+      }
+
+      #result-data {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+      }
+.image-uploader  {
+	text-align:center;
+	width:500px;
+	padding:20px;
+    border-radius: 10px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+	background-color:#E3E3E3;
+	margin: 0 auto;
+	}
+.vignettes {
+    border-radius: 10px;
+    border: 2px solid #EDEDED;
+	margin:10px;
+	}
+	
+table-morpion {
+	border-collapse: collapse;
+	}
+.carre {
+	width:250px;
+	height:250px;
+	background-image:url(/imag/croix-rond.png);
+	}
+#titre {
+	position:fixed;
+	left:0px;
+	top:0px;
+	text-align:center;
+	width:100%;
+	display:block;
+	font-family: 'Lobster', cursive;
+	font-size:80px;
+	padding-top:20px;
+	color:black;
+	}
+#Zonea1  {
+		border-right: solid 20px black;
+		border-bottom: solid 20px black;
+	}
+#Zonea2  {
+		border-right: solid 20px black;
+		border-bottom: solid 20px black;
+		border-left: solid 20px black;
+	}
+#Zonea3  {
+		border-bottom: solid 20px black;
+		border-left: solid 20px black;
+	}
+	
+#Zoneb1  {
+		border-right: solid 20px black;
+		border-bottom: solid 20px black;
+		border-top: solid 20px black;
+	}
+#Zoneb2  {
+		border: solid 20px black;
+
+	}
+#Zoneb3  {
+		border-left: solid 20px black;
+		border-bottom: solid 20px black;
+		border-top: solid 20px black;
+	}
+	
+#Zonec1  {
+		border-right: solid 20px black;
+		border-top: solid 20px black;
+	}
+#Zonec2  {
+		border-right: solid 20px black;
+		border-left: solid 20px black;
+		border-top: solid 20px black;
+
+	}
+#Zonec3  {
+		border-left: solid 20px black;
+		border-top: solid 20px black;
+	}
+.jeu {
+	margin-top:200px;
+	text-align:center;
+	}
+#center {
+	margin-left:auto; 
+    margin-right:auto;
+	}
+	
+#rejouer {
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	text-align:center;
+	width:100%;
+	display:block;
+	}
+.bouton {
+	margin-bottom:20px;
+	padding:20px;
+	font-family: 'Lobster', cursive;
+	font-size:80px;
+	background-color:#C3C2C2;
+	border-radius:20px;
+	border:none;
+	}
